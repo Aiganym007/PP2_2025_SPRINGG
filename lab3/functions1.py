@@ -1,10 +1,10 @@
 #1
-def grams_to_ounces(grams):
+def ounces(grams):
     ounces = 28.3495231 * grams
     return ounces
 grams = 1000
-ounces = grams_to_ounces(grams)
-print(ounces)
+ounce = ounces(grams)
+print(ounce)
 
 #2
 def F_to_C(F):
@@ -12,7 +12,7 @@ def F_to_C(F):
     return C
 F = 150
 C = F_to_C(F)
-print(f"{C:.2f}")
+print(C)
 
 #3
 def solve(numheads, numlegs):
@@ -42,12 +42,19 @@ primes = filter_prime(number)
 print(primes)
 
 #5
+from itertools import permutations
+def print_permutations(s):
+    a = permutations(s)
+    for k in a:
+        print(''.join(k))
+b = 'abc'
+print_permutations(b)
 
 
 #6
 def str_revv():
-    str = "We are ready"
-    word = str.split()
+    s = "We are ready"
+    word = s.split()
     rev_str = ' '.join(reversed(word))
     return rev_str
 print(str_revv())
@@ -63,18 +70,50 @@ print(arr([1,3,1,3]))
 print(arr([3,1,3]))
 
 #8
-
+def spy_game(a):
+    c=""
+    for i in range(len(a)):
+        if a[i] == 0 or a[i] == 7:
+            c+=str(a[i])
+    if c=='007':
+        return True
+    return False
+s=[1,2,0,4,5,0,7] 
+print(spy_game(s)) 
 
 #9
 import math
-def volume_sph(R):
+def sphera(R):
     V = (4/3)*math.pi*R**3
     return V 
 R = 5
-V = volume_sph(R)
+V = sphera(R)
 print(V)
 
 #10
+def unique(a):
+    c = []
+    for b in a:
+        if b not in c:
+            c.append(b)
+    return c
+s = [1, 2, 2, 3, 4, 4, 5]
+print(unique(s)) 
+
+#11
+def palindrome(a):
+    b=a[::-1]
+    if a==b:
+        return "palindrome"
+    return "not palindrome"
+t="madam"
+print(palindrome(t))
+
+#12
+def histogram(n):
+    for i in n:
+        print('*' * i)
+histogram([4, 9, 7])
 
 #13
 import random

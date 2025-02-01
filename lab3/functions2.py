@@ -78,9 +78,53 @@ movies = [
 }
 ]
 #1
-def is_imdb_above_5_5(movie):
+def imdb(movie):
     if movie["imdb"]>5.5:
         return True
 movie = movies[0]
-imdb_r = is_imdb_above_5_5(movie)
+imdb_r = imdb(movie)
 print(imdb_r)
+
+#2
+def score(f):
+    r=[] 
+    for m in f:  
+        if m["imdb"] > 5.5:  
+            r.append(m)
+    for i in r:
+        print(i)
+score(movies)
+
+#3
+def score(f):
+    r=[]
+    n="Thriller"
+    for m in f:  
+        if m["category"]==n:  
+            r.append(m)
+    for i in r:
+        print(i)
+score(movies)
+
+#4
+def average(f):
+    c=0
+    t=0
+    for m in f:  
+        c+=m["imdb"]
+        t+=1
+    a=c/t
+    return a
+
+#5
+def average(f):
+    a=input()
+    c=0
+    t=0
+    for m in f: 
+        if m["category"]==a: 
+            c+=m["imdb"]
+            t+=1
+    e=c/t
+    return e 
+

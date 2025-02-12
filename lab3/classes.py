@@ -120,3 +120,4 @@ for i in range(2,b+1):
 p = lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n ** 0.5) + 1))
 primes = list(filter(p, c))
 print(primes)  
+

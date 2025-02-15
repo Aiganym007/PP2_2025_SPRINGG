@@ -1,6 +1,4 @@
-def area(a,h):
-    return float(a*h)
-a = 5
-h = 6
-s = area(a,h)
-print(s)
+import math 
+a = int(input("Length of base:"))
+b = int(input("Height of parallelogram:"))
+print("Expected Output:", float(a*b))

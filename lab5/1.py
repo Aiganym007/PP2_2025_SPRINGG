@@ -1,9 +1,6 @@
 import re
-with open(r"C:\Users\Gulistan\Downloads\row.txt", "r", encoding="utf-8") as fr:
-    reading = fr.readlines()
-s = ''.join(reading)
-p = re.compile('ab*')
-m = p.findall(s)
+s = "ab abb abbb a ac abc"
+m = re.findall(r'ab*', s)
 if m:
     print(m)
 else:

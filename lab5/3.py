@@ -1,9 +1,6 @@
 import re
-with open(r"C:\Users\Gulistan\Downloads\row.txt", "r", encoding="utf-8") as fr:
-    reading = fr.readlines()
-s = ''.join(reading)
-p = re.compile('[a-z]+_[a-z]+')
-m = p.findall(s)
+s = input("Enter a string: ")
+m = re.findall(r'[a-z]+_[a-z]+', s)
 if m:
     print(m)
 else:

@@ -1,9 +1,6 @@
 import re
-with open(r"C:\Users\Gulistan\Downloads\row.txt", "r", encoding="utf-8") as fr:
-    reading = fr.readlines()
-s = ''.join(reading)
-p = re.compile(r'a[\w.]+b')
-m = p.findall(s)
+s = input("Enter a string: ")
+m = re.findall(r'a.*b$', s)
 if m:
     print(m)
 else:

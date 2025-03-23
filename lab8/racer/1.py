@@ -20,6 +20,9 @@ background = pygame.image.load(r"C:\Users\Gulistan\Desktop\PP2_2025_SPRING\lab8\
 scr = pygame.display.set_mode((400,600))
 scr.fill("white")
 pygame.display.set_caption("Game")
+pygame.mixer.music.load(r"C:\Users\Gulistan\Desktop\PP2_2025_SPRING\lab8\racer\bck.wav.wav")
+pygame.mixer.music.play(-1)  
+pygame.mixer.music.set_volume(0.5)
 
 class Enemy(pygame.sprite.Sprite):
       def __init__(self):

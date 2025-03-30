@@ -1,6 +1,4 @@
 import pygame
-import math
-
 pygame.init()
 
 WIDTH, HEIGHT = 800, 600
@@ -16,64 +14,17 @@ BLUE = (0, 0, 255)
 brush_size = 5
 current_color = BLACK
 mode = "pen"  
-
 screen.fill(WHITE)
 
 def draw_circle(start_pos, end_pos, color):
-    """Draw a circle based on start and end positions."""
     radius = max(abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1])) // 2
     center = ((start_pos[0] + end_pos[0]) // 2, (start_pos[1] + end_pos[1]) // 2)
     pygame.draw.circle(screen, color, center, radius, 2)
 
 def draw_rectangle(start_pos, end_pos, color):
-    """Draw a rectangle based on start and end positions."""
     rect = pygame.Rect(min(start_pos[0], end_pos[0]), min(start_pos[1], end_pos[1]),
                        abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1]))
     pygame.draw.rect(screen, color, rect, 2)
-
-def draw_square(start_pos, end_pos, color):
-    """Draw a square based on the start and end positions."""
-    side_length = min(abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1]))
-    top_left = (min(start_pos[0], end_pos[0]), min(start_pos[1], end_pos[1]))
-    pygame.draw.rect(screen, color, pygame.Rect(top_left, (side_length, side_length)), 2)
-
-def draw_right_triangle(start_pos, end_pos, color):
-    """Draw a right triangle with the start position as the right-angle corner."""
-    width = abs(start_pos[0] - end_pos[0])
-    height = abs(start_pos[1] - end_pos[1])
-    points = [
-        start_pos,
-        (start_pos[0] + width, start_pos[1]),
-        (start_pos[0], start_pos[1] + height)
-    ]
-    pygame.draw.polygon(screen, color, points, 2)
-
-def draw_equilateral_triangle(start_pos, end_pos, color):
-    """Draw an equilateral triangle based on the start and end positions."""
-    side_length = min(abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1]))
-    height = math.sqrt(3) * side_length / 2
-    top_x = (start_pos[0] + end_pos[0]) // 2
-    top_y = min(start_pos[1], end_pos[1]) - height
-    points = [
-        (top_x, top_y),
-        (start_pos[0], start_pos[1]),
-        (end_pos[0], end_pos[1])
-    ]
-    pygame.draw.polygon(screen, color, points, 2)
-
-def draw_rhombus(start_pos, end_pos, color):
-    """Draw a rhombus based on the start and end positions."""
-    width = abs(start_pos[0] - end_pos[0])
-    height = abs(start_pos[1] - end_pos[1])
-    center_x = (start_pos[0] + end_pos[0]) // 2
-    center_y = (start_pos[1] + end_pos[1]) // 2
-    points = [
-        (center_x, start_pos[1]),
-        (start_pos[0], center_y),
-        (center_x, end_pos[1]),
-        (end_pos[0], center_y)
-    ]
-    pygame.draw.polygon(screen, color, points, 2)
 
 running = True
 drawing = False
@@ -102,32 +53,16 @@ while running:
                 draw_rectangle(start_pos, end_pos, current_color)
             elif mode == "circle":
                 draw_circle(start_pos, end_pos, current_color)
-            elif mode == "square":
-                draw_square(start_pos, end_pos, current_color)
-            elif mode == "right_triangle":
-                draw_right_triangle(start_pos, end_pos, current_color)
-            elif mode == "equilateral_triangle":
-                draw_equilateral_triangle(start_pos, end_pos, current_color)
-            elif mode == "rhombus":
-                draw_rhombus(start_pos, end_pos, current_color)
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_r:
                 mode = "rect"
             elif event.key == pygame.K_c:
                 mode = "circle"
-            elif event.key == pygame.K_s:
-                mode = "square"
-            elif event.key == pygame.K_t:
-                mode = "right_triangle"
-            elif event.key == pygame.K_e:
-                mode = "eraser"
-            elif event.key == pygame.K_q:
-                mode = "equilateral_triangle"
-            elif event.key == pygame.K_h:
-                mode = "rhombus"
             elif event.key == pygame.K_p:
                 mode = "pen"
+            elif event.key == pygame.K_e:
+                mode = "eraser"
 
             elif event.key == pygame.K_1:
                 current_color = BLACK
@@ -140,4 +75,4 @@ while running:
 
     pygame.display.flip()
 
-pygame.quit()
+pygame.quit() 

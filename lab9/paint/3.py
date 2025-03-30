@@ -1,6 +1,5 @@
 import pygame
 import math
-
 pygame.init()
 
 WIDTH, HEIGHT = 800, 600
@@ -20,25 +19,21 @@ mode = "pen"
 screen.fill(WHITE)
 
 def draw_circle(start_pos, end_pos, color):
-    """Draw a circle based on start and end positions."""
     radius = max(abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1])) // 2
     center = ((start_pos[0] + end_pos[0]) // 2, (start_pos[1] + end_pos[1]) // 2)
     pygame.draw.circle(screen, color, center, radius, 2)
 
 def draw_rectangle(start_pos, end_pos, color):
-    """Draw a rectangle based on start and end positions."""
     rect = pygame.Rect(min(start_pos[0], end_pos[0]), min(start_pos[1], end_pos[1]),
                        abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1]))
     pygame.draw.rect(screen, color, rect, 2)
 
 def draw_square(start_pos, end_pos, color):
-    """Draw a square based on the start and end positions."""
     side_length = min(abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1]))
     top_left = (min(start_pos[0], end_pos[0]), min(start_pos[1], end_pos[1]))
     pygame.draw.rect(screen, color, pygame.Rect(top_left, (side_length, side_length)), 2)
 
 def draw_right_triangle(start_pos, end_pos, color):
-    """Draw a right triangle with the start position as the right-angle corner."""
     width = abs(start_pos[0] - end_pos[0])
     height = abs(start_pos[1] - end_pos[1])
     points = [
@@ -49,7 +44,6 @@ def draw_right_triangle(start_pos, end_pos, color):
     pygame.draw.polygon(screen, color, points, 2)
 
 def draw_equilateral_triangle(start_pos, end_pos, color):
-    """Draw an equilateral triangle based on the start and end positions."""
     side_length = min(abs(start_pos[0] - end_pos[0]), abs(start_pos[1] - end_pos[1]))
     height = math.sqrt(3) * side_length / 2
     top_x = (start_pos[0] + end_pos[0]) // 2
@@ -62,7 +56,6 @@ def draw_equilateral_triangle(start_pos, end_pos, color):
     pygame.draw.polygon(screen, color, points, 2)
 
 def draw_rhombus(start_pos, end_pos, color):
-    """Draw a rhombus based on the start and end positions."""
     width = abs(start_pos[0] - end_pos[0])
     height = abs(start_pos[1] - end_pos[1])
     center_x = (start_pos[0] + end_pos[0]) // 2
